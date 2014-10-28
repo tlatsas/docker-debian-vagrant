@@ -2,7 +2,7 @@ FROM debian:7.7
 MAINTAINER Tasos Latsas "tlatsas@kodama.gr"
 
 RUN useradd --create-home --shell /bin/bash vagrant
-RUN echo vagrant | passwd --stdin vagrant
+RUN echo vagrant:vagrant | chpasswd
 
 ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant /home/vagrant/.ssh/
 ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub /home/vagrant/.ssh/
