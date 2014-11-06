@@ -16,7 +16,3 @@ RUN apt-get clean
 
 ADD sudoers.d/01_vagrant /etc/sudoers.d/
 RUN chmod 0400 /etc/sudoers.d/01_vagrant
-
-RUN mkdir /var/run/sshd
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D", "-e", "-q"]
