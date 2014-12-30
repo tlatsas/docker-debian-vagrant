@@ -11,8 +11,9 @@ RUN chmod 0600 /home/vagrant/.ssh/authorized_keys
 RUN chmod 0700 /home/vagrant/.ssh
 
 RUN apt-get update
-RUN apt-get install -y openssh-server sudo wget curl
-RUN apt-get install -y puppet
+RUN apt-get -y upgrade
+RUN apt-get -y install openssh-server sudo wget curl
+RUN apt-get -y install puppet
 RUN apt-get clean
 
 ADD sudoers.d/01_vagrant /etc/sudoers.d/
