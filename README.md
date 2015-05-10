@@ -3,6 +3,7 @@ Vagrant-ready debian docker images. Base docker images are from the [semi-offici
 Images:
 
 * [latest](https://github.com/tlatsas/docker-debian-vagrant/blob/master/latest/Dockerfile)
+* [jessie](https://github.com/tlatsas/docker-debian-vagrant/blob/master/jessie/Dockerfile)
 * [wheezy](https://github.com/tlatsas/docker-debian-vagrant/blob/master/wheezy/Dockerfile)
 
 All images have puppet installed.
