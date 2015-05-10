@@ -5,7 +5,8 @@ RUN useradd --create-home --shell /bin/bash vagrant
 RUN echo root:vagrant | chpasswd
 RUN echo vagrant:vagrant | chpasswd
 
-ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub /home/vagrant/.ssh/authorized_keys
+ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub \
+    /home/vagrant/.ssh/authorized_keys
 RUN chown -R vagrant:vagrant /home/vagrant/.ssh
 RUN chmod 0600 /home/vagrant/.ssh/authorized_keys
 RUN chmod 0700 /home/vagrant/.ssh
