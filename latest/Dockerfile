@@ -5,16 +5,15 @@ RUN useradd --create-home --shell /bin/bash vagrant
 RUN echo root:vagrant | chpasswd
 RUN echo vagrant:vagrant | chpasswd
 
-ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub /home/vagrant/.ssh/authorized_keys
+ADD https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub \
+    /home/vagrant/.ssh/authorized_keys
 RUN chown -R vagrant:vagrant /home/vagrant/.ssh
 RUN chmod 0600 /home/vagrant/.ssh/authorized_keys
 RUN chmod 0700 /home/vagrant/.ssh
 
-RUN apt-get update
-RUN apt-get -y upgrade
-RUN apt-get -y install openssh-server sudo wget curl
-RUN apt-get -y install puppet
-RUN apt-get clean
+RUN apt-get update \
+    && apt-get install -y openssh-server sudo wget curl puppet \
+    && apt-get clean
 
 RUN sed --regexp-extended --in-place \
     's/^session\s+required\s+pam_loginuid.so$/session optional pam_loginuid.so/' \
